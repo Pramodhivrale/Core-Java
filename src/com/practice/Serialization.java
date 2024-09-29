@@ -4,6 +4,16 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+class Serialization2 implements Serializable
+{
+	
+	int a;
+	String s;
+
+}
 
 public class Serialization 
 {
@@ -18,22 +28,20 @@ public class Serialization
 		System.out.println("Object writing is completed");
 		oos.close();
 		
-	}
-	void meth2() throws Exception
-	{
+	
+	
 		ObjectInputStream ois=new ObjectInputStream(new FileInputStream("C:\\FileInputStrem\\data5.ser"));
 		Serialization2 object =(Serialization2) ois.readObject();
 		System.out.println(object.a+" "+object.s);
+		System.out.println("Object reading is completed !");
 		ois.close();
 		
 		
+	}	
 		
-		
-	}
 	public static void main(String[] args) throws Exception {
 		Serialization serialization=new Serialization();
-		//serialization.meth1();
-		serialization.meth2();
+		serialization.meth1();
 	}
 	
 
